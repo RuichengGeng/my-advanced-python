@@ -1,0 +1,61 @@
+C:\Users\Ruich\anaconda3\envs\my-advanced-python\python.exe C:/Users/Ruich/Desktop/Recent/my-advanced-python/cross-reference-gc/demo-tree.py 
+Delete my efficient node : 2
+Delete my efficient node : 1
+Delete my efficient node : 2
+Delete my efficient node : 1
+Delete my efficient node : 2
+Delete my efficient node : 1
+Delete my efficient node : 2
+Delete my efficient node : 1
+Delete my efficient node : 2
+Delete my efficient node : 1
+Delete my efficient node : 2
+Delete my efficient node : 1
+Delete my efficient node : 2
+Delete my efficient node : 1
+Delete my efficient node : 2
+Delete my efficient node : 1
+Delete my efficient node : 2
+Delete my efficient node : 1
+Delete my efficient node : 2
+Delete my efficient node : 1
+end
+memory usage 49.75390625 M
+Filename: C:\Users\Ruich\Desktop\Recent\my-advanced-python\cross-reference-gc\demo-tree.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   134     34.4 MiB     34.4 MiB           1   @profile
+   135                                         def main():
+   136                                         
+   137     49.8 MiB     15.3 MiB           1       func2()
+   138     49.8 MiB      0.0 MiB           1       func1()
+   139     49.8 MiB      0.0 MiB           1       print("end")
+   140                                         
+   141     49.8 MiB      0.0 MiB           1       process = psutil.Process(os.getpid())
+   142     49.8 MiB      0.0 MiB           1       print(f"memory usage {utils.bytesto(process.memory_info().rss, 'm')} M")  # in MB
+
+
+end of program
+Delete my node : 1
+Delete my node : 2
+Delete my node : 1
+Delete my node : 2
+Delete my node : 1
+Delete my node : 2
+Delete my node : 1
+Delete my node : 2
+Delete my node : 1
+Delete my node : 2
+Delete my node : 1
+Delete my node : 2
+Delete my node : 1
+Delete my node : 2
+Delete my node : 1
+Delete my node : 2
+Delete my node : 1
+Delete my node : 2
+Delete my node : 1
+Delete my node : 2
+
+Process finished with exit code 0

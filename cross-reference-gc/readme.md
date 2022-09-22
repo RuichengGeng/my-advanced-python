@@ -11,3 +11,8 @@ Some related posts:
 3. Circular reference are often encountered 
    1. In some often used data structures, especially in tree and list
    2. When classes are not very well organized.`it is normal practice to break code with one-way abstraction levels when the lower level knows nothing about the higher level and the higher one uses the lower level for any action`
+
+### Update1: 2022-09-22
+add anytree.Node based tree node based example, from the log file, we can find that:
+1. anytree.Node is memory inefficient in constructing trees, memory released only after program end. 
+2. newly implement node(MyEfficientNode) use weak reference, python GC will collect garbage in loop, memory efficient!
