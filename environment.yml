@@ -15,6 +15,7 @@ dependencies:
   - psycopg2=2.9.3
   - pywin32=301
   - pyyaml=6.0
+  - bs4=0.0.1
 
   # some io monitoring tools
   - memory-profiler=0.60.0
