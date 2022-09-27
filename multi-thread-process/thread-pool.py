@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Oct 13 09:18:44 2021
 
 @author: Ruicheng
 
@@ -43,7 +42,7 @@ def twenty_workers():
 
 
 def main():
-    # here you can see 20 workers are faster than 10 
+    # here you can see 20 workers are faster than 10
     start = time.time()
     ten_workers()
     end = time.time()
@@ -53,7 +52,6 @@ def main():
     twenty_workers()
     end = time.time()
     print("20 worker thread {}".format(end - start))
-
 
 
 if __name__ == "__main__":

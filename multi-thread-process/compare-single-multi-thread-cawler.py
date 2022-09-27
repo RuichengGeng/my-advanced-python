@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Oct 12 09:25:11 2021
 
 @author: Ruich
 

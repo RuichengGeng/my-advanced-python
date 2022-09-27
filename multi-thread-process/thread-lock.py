@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Oct 13 09:00:33 2021
-
 @author: Ruich
 Since threads are still executed with in one process and has shared variables and resources, so some time need
 a lock of some shared variables to make sure multi-thread not change one shared variable at the same time.
