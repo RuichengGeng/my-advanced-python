@@ -7,10 +7,11 @@ import asyncio
 async def main():
     task = asyncio.create_task(submain())
     print("A")
-
     await asyncio.sleep(1)
     print("B")
+    
     value = await task
+
     print(value)
 
 
@@ -19,7 +20,6 @@ async def submain():
     await asyncio.sleep(3)
     print("2")
     return "Hello World"
-
 
 
 if __name__ == "__main__":
