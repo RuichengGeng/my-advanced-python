@@ -1,3 +1,4 @@
+"""This demo shows that async io based program can run in a pre-specified order"""
 import asyncio
 import logging
 import time

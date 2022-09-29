@@ -11,4 +11,5 @@ The most used cases is: get data from vander - populate data into db - at the sa
 
 
 #### Here are some useful links below:
--[intro-async-io](https://realpython.com/async-io-python/)
+- [watch this video before reading anything](https://www.youtube.com/watch?v=t5Bo1Je9EmE)
+- [intro-async-io](https://realpython.com/async-io-python/)
