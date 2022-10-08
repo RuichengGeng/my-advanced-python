@@ -10,12 +10,14 @@ class PcaResult:
     embeddings: pd.DataFrame
     input_variance: pd.Series
     factor_covariance: pd.DataFrame
+    input_vcv: pd.DataFrame
 
 
 def pca(data, factor_count, name):
     input_means = data.mean()
     input_stds = data.std()
     input_variance = data.var()
+    input_vcv = data.cov()
 
     centered_data = data - input_means
     sample_correlation_matrix = centered_data.corr()
@@ -46,10 +48,12 @@ def pca(data, factor_count, name):
         variance_residual=variance_of_residuals,
         embeddings=embeddings,
         input_variance=input_variance,
-        factor_covariance=factor_covariance
+        factor_covariance=factor_covariance,
+        input_vcv=input_vcv
     )
 
-def  main():
+
+def main():
         # node1
     corrcoef1 = np.array(
         [
@@ -110,7 +114,7 @@ def  main():
     factor3 = result3.factor
     embeddings3 = result3.embeddings
 
-
+    # aggregate factors from node 1 2 and 3
     data = pd.concat([factor1, factor2, factor3], axis=1)
     result = pca(data, factor_count=4, name="Root")
     embeddings = result.embeddings
@@ -122,36 +126,33 @@ def  main():
     )
     vcv_1_modeled_diag = pd.DataFrame(np.diag(np.diag(vcv_1_modeled)), columns=vcv_1_modeled.columns,
                                       index=vcv_1_modeled.index)
-
-
     vcv_1_real = data.cov()
-    recalculated_residual = result.input_variance[vcv_1_modeled.columns] - np.diag(vcv_1_modeled)
-    for diff in recalculated_residual:
-        if diff < 0:
-            print(f"!!!!!!!!!!!{recalculated_residual}")
 
 
     vcv_node_1 = embeddings1 @ vcv_1_modeled.loc[embeddings1.columns, embeddings1.columns] @ embeddings1.T
     recalculated_residual = result1.input_variance[vcv_node_1.columns] - np.diag(vcv_node_1)
-    print(f"Node1: {recalculated_residual}")
-    for diff in recalculated_residual:
-        if diff < 0:
-            print(f"!!!!!!!!!!!{recalculated_residual}")
+    print(f"Node1 input variance: {result1.input_variance[vcv_node_1.columns]}")
+    print(f"Node1 residual: {recalculated_residual}")
+    # for diff in recalculated_residual:
+    #     if diff < 0:
+    #         print(f"!!!!!!!!!!!{recalculated_residual}")
 
     vcv_node_2 = embeddings2 @ vcv_1_modeled.loc[embeddings2.columns, embeddings2.columns] @ embeddings2.T
     recalculated_residual = result2.input_variance[vcv_node_2.columns] - np.diag(vcv_node_2)
-    print(f"Node2: {recalculated_residual}")
-    for diff in recalculated_residual:
-        if diff < 0:
-            print(f"!!!!!!!!!!!{recalculated_residual}")
+    print(f"Node2 input variance: {result2.input_variance[vcv_node_2.columns]}")
+    print(f"Node2 residual: {recalculated_residual}")
+    # for diff in recalculated_residual:
+    #     if diff < 0:
+    #         print(f"!!!!!!!!!!!{recalculated_residual}")
 
 
     vcv_node_3 = embeddings3 @ vcv_1_modeled.loc[embeddings3.columns, embeddings3.columns] @ embeddings3.T
     recalculated_residual = result3.input_variance[vcv_node_3.columns] - np.diag(vcv_node_3)
-    print(f"Node3: {recalculated_residual}")
-    for diff in recalculated_residual:
-        if diff < 0:
-            print(f"!!!!!!!!!!!{recalculated_residual}")
+    print(f"Node3 input variance: {result3.input_variance[vcv_node_3.columns]}")
+    print(f"Node3 residual: {recalculated_residual}")
+    # for diff in recalculated_residual:
+    #     if diff < 0:
+    #         print(f"!!!!!!!!!!!{recalculated_residual}")
 
 
 if __name__ == "__main__":
