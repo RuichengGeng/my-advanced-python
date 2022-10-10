@@ -18,3 +18,10 @@
 - alembic revision --autogenerate -m "Create user model"
 - alembic upgrade head
 - alembic downgrade -1
+
+
+### Starting PostgreSQL container
+It is recommended to develop against a PostgreSQL database server running locally in a docker container. Assuming you installed Docker(Docker desktop and before Docker,you should install WSL and Ubuntu), you can start such a container by for example running:
+```
+docker run -e POSTGRES_PASSWORD=ruicheng -e POSTGRES_USER=ruicheng -e PGDATA=/var/lib/postgresql/data/pgdata -v /var/lib/postgresql/data -p 5432:5432 --restart=unless-stopped --detach postgres:13.1
+```

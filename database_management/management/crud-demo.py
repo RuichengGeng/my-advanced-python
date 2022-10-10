@@ -9,7 +9,7 @@ from models import Base, UserModel
 
 def do_with_session(func):
     session_maker = sessionmaker(
-        bind=create_engine("postgresql+psycopg2://ruicheng:Grc201503030220@localhost:5005/ruicheng"))
+        bind=create_engine("postgresql+psycopg2://ruicheng:ruicheng@localhost:5432/ruicheng"))
     with session_maker() as session:
         try:
             func(session)
@@ -22,7 +22,7 @@ def do_with_session(func):
 
 def query_session(table: Base):
     session_maker = sessionmaker(
-        bind=create_engine("postgresql+psycopg2://ruicheng:Grc201503030220@localhost:5005/ruicheng"))
+        bind=create_engine("postgresql+psycopg2://ruicheng:ruicheng@localhost:5432/ruicheng"))
     with session_maker() as session:
         try:
             records = session.query(table).all()
