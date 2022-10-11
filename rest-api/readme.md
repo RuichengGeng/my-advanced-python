@@ -1,0 +1,1 @@
+[quick start rest-api](https://www.django-rest-framework.org/tutorial/quickstart/)
