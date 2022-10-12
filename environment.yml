@@ -23,3 +23,7 @@ dependencies:
   # possibly not required anymore
   - requests=2.26.0
   - pytables=3.6.1
+
+  # django
+  - django=4.1.2
+  - djangorestframework=3.14.0
