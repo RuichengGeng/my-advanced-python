@@ -45,7 +45,13 @@ def unlock_func():
         threads = []
         for amount in amounts:
             threads.append(
-                threading.Thread(target=draw, args=(account, amount,))
+                threading.Thread(
+                    target=draw,
+                    args=(
+                        account,
+                        amount,
+                    ),
+                )
             )
         for thread in threads:
             thread.start()
@@ -62,7 +68,13 @@ def locked_func():
         threads = []
         for amount in amounts:
             threads.append(
-                threading.Thread(target=draw_lock, args=(account, amount,))
+                threading.Thread(
+                    target=draw_lock,
+                    args=(
+                        account,
+                        amount,
+                    ),
+                )
             )
         for thread in threads:
             thread.start()
@@ -77,5 +89,5 @@ def main():
     locked_func()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

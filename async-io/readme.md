@@ -7,7 +7,7 @@ The most used cases is: get data from vander - populate data into db - at the sa
 2. Thread vs Process and asyncio
    1. Might not be accurate in my words: just see this link: [asyncio-threading-and-multiprocessing-in-python](https://medium.com/analytics-vidhya/asyncio-threading-and-multiprocessing-in-python-4f5ff6ca75e8)
    2. I like [this post](https://itnext.io/practical-guide-to-async-threading-multiprocessing-958e57d7bbb8)
- 
+
 
 
 #### Here are some useful links below:

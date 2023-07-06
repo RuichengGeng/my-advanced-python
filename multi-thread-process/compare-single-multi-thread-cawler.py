@@ -25,9 +25,7 @@ def multi_thread_craw(urls):
     print("multi thread start")
     threads = []
     for url in urls:
-        threads.append(
-            threading.Thread(target=craw, args=(url,))
-        )
+        threads.append(threading.Thread(target=craw, args=(url,)))
 
     for thread in threads:
         thread.start()
@@ -35,11 +33,9 @@ def multi_thread_craw(urls):
     for thread in threads:
         thread.join()
 
+
 def main():
-    urls = [
-        f"https://www.cnblogs.com/#p{page}"
-        for page in range(1, 51)
-    ]
+    urls = [f"https://www.cnblogs.com/#p{page}" for page in range(1, 51)]
     # single thread
     start = time.time()
     single_thread_craw(urls)
@@ -53,5 +49,5 @@ def main():
     print("multi thread {}".format(end - start))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

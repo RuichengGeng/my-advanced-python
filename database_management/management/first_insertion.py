@@ -9,9 +9,13 @@ from models import UserModel
 def main():
     users = [
         UserModel(first_name="Ruicheng", last_name="Geng", birth=datetime(1997, 1, 1)),
-        UserModel(first_name="Cool", last_name="Boy", birth=datetime(1997, 1, 2))
+        UserModel(first_name="Cool", last_name="Boy", birth=datetime(1997, 1, 2)),
     ]
-    session_maker = sessionmaker(bind=create_engine("postgresql+psycopg2://ruicheng:Grc201503030220@localhost:5005/ruicheng"))
+    session_maker = sessionmaker(
+        bind=create_engine(
+            "postgresql+psycopg2://ruicheng:Grc201503030220@localhost:5005/ruicheng"
+        )
+    )
     with session_maker() as session:
         for user in users:
             session.add(user)
@@ -23,5 +27,5 @@ def main():
             print(user)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

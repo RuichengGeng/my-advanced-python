@@ -1,4 +1,6 @@
 from __future__ import annotations
+
+import gc
 import os
 import psutil
 import weakref
@@ -9,7 +11,7 @@ from typing import Optional
 
 import numpy as np
 
-import utils
+# import utils
 
 
 class MyNode(anytree.Node):
@@ -18,7 +20,7 @@ class MyNode(anytree.Node):
         name: str,
         parent: Optional[MyNode] = None,
         children: Optional[list[MyNode]] = [],
-        data: Optional[np.ndarray] = None
+        data: Optional[np.ndarray] = None,
     ):
         if children is None:
             children = []
@@ -53,11 +55,7 @@ class MyEfficientNode(anytree.Node):
         self._data = data
         self._children = children
         self._name = name
-        super().__init__(
-            name=self._name,
-            parent=self._parent,
-            children=self._children
-        )
+        super().__init__(name=self._name, parent=self._parent, children=self._children)
 
     @property
     def parent(self):
@@ -138,9 +136,10 @@ def main():
     print("end")
 
     process = psutil.Process(os.getpid())
-    print(f"memory usage {utils.bytesto(process.memory_info().rss, 'm')} M")  # in MB
+    # print(f"memory usage {utils.bytesto(process.memory_info().rss, 'm')} M")  # in MB
 
 
 if __name__ == "__main__":
     main()
+    gc.collect()
     print("end of program")

@@ -9,7 +9,7 @@ async def main():
     print("A")
     await asyncio.sleep(1)
     print("B")
-    
+
     value = await task
 
     print(value)

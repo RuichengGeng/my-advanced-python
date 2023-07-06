@@ -11,7 +11,7 @@ class A(object):
         self._parent = weakref.ref(parent) if parent else parent
         # self._parent = parent
         self.children = set()
-        self.workload = ' ' * 128 * 1024 * 1024
+        self.workload = " " * 128 * 1024 * 1024
 
     @property
     def parent(self):
@@ -32,7 +32,7 @@ class B(object):
         self.name = name
         self._parent = parent
         self.children = set()
-        self.workload = ' ' * 128 * 1024 * 1024
+        self.workload = " " * 128 * 1024 * 1024
 
     @property
     def parent(self):

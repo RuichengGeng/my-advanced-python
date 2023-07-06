@@ -19,10 +19,7 @@ def craw(url):
 
 def ten_workers():
     # Please note that there are lots of parameters about thread pool executor, can take a look if optimization is needed
-    urls = [
-        f"https://www.cnblogs.com/#p{page}"
-        for page in range(1, 51)
-    ]
+    urls = [f"https://www.cnblogs.com/#p{page}" for page in range(1, 51)]
     with ThreadPoolExecutor(max_workers=10) as pool:
         htmls = pool.map(craw, urls)
     for idx, html in enumerate(htmls):
@@ -31,10 +28,7 @@ def ten_workers():
 
 def twenty_workers():
     # Please note that there are lots of parameters about thread pool executor, can take a look if optimization is needed
-    urls = [
-        f"https://www.cnblogs.com/#p{page}"
-        for page in range(51, 101)
-    ]
+    urls = [f"https://www.cnblogs.com/#p{page}" for page in range(51, 101)]
     with ThreadPoolExecutor(max_workers=20) as pool:
         htmls = pool.map(craw, urls)
     for idx, html in enumerate(htmls):
@@ -56,5 +50,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-

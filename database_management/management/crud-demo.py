@@ -8,6 +8,7 @@ from models import Base, UserModel
 
 class User:
     """container of database instance of user"""
+
     def __init__(self, user_model: UserModel):
         self.id = user_model.id
         self.first_name = user_model.first_name
@@ -17,7 +18,10 @@ class User:
 
 def do_with_session(func):
     session_maker = sessionmaker(
-        bind=create_engine("postgresql+psycopg2://ruicheng:ruicheng@localhost:5432/ruicheng"))
+        bind=create_engine(
+            "postgresql+psycopg2://ruicheng:ruicheng@localhost:5432/ruicheng"
+        )
+    )
     with session_maker() as session:
         try:
             func(session)
@@ -30,7 +34,10 @@ def do_with_session(func):
 
 def query_session(table: Base):
     session_maker = sessionmaker(
-        bind=create_engine("postgresql+psycopg2://ruicheng:ruicheng@localhost:5432/ruicheng"))
+        bind=create_engine(
+            "postgresql+psycopg2://ruicheng:ruicheng@localhost:5432/ruicheng"
+        )
+    )
     with session_maker() as session:
         try:
             records = session.query(table).all()
@@ -46,7 +53,7 @@ def query_session(table: Base):
 def add_demo():
     items = [
         UserModel(first_name="Ruicheng", last_name="Geng", birth=datetime(1997, 1, 1)),
-        UserModel(first_name="Cool", last_name="Boy", birth=datetime(1997, 1, 2))
+        UserModel(first_name="Cool", last_name="Boy", birth=datetime(1997, 1, 2)),
     ]
 
     def _add_wrapper(session: Session):
@@ -92,7 +99,7 @@ def update_demo():
     do_with_session(_update_wrapper)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     add_demo()
     print("First commit result...")
     read_table_demo()
@@ -102,4 +109,3 @@ if __name__ == '__main__':
     read_table_demo()
     print("Deleting table...")
     delete_demo()
-

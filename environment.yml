@@ -27,3 +27,6 @@ dependencies:
   # django
   - django=4.1.2
   - djangorestframework=3.14.0
+
+  # http server
+  -

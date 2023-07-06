@@ -7,7 +7,7 @@ from .serializers import DrinkSerializer
 from rest_framework.decorators import api_view
 
 
-@api_view(['GET', 'POST'])
+@api_view(["GET", "POST"])
 def drink_list(request):
     # get all the drinks
     # serialize them and return json
@@ -21,7 +21,8 @@ def drink_list(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-@api_view(['GET', 'PUT','DELETE'])
+
+@api_view(["GET", "PUT", "DELETE"])
 def drink_detail(request, id):
     try:
         res = Drinks.objects.get(pk=id)

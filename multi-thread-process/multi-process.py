@@ -42,6 +42,7 @@ def multiprocess_process():
     with ProcessPoolExecutor() as pool:
         result = pool.map(is_prime, PRIMES)
 
+
 def main():
     start = time.time()
     single_process()
@@ -60,5 +61,5 @@ def main():
     print("multi process {}".format(end - start))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
